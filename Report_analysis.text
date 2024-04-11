@@ -1,0 +1,27 @@
+Overview of the Analysis
+The purpose of this analysis is to leverage deep learning techniques to predict the success of funding applications made to Alphabet Soup, a philanthropic organization. By analyzing historical data of application outcomes, the goal is to build a neural network model that can accurately identify which applications are likely to succeed, thereby enabling Alphabet Soup to allocate resources more efficiently and effectively to projects with the highest likelihood of positive impact.
+
+Results
+
+Data Preprocessing
+Target Variable(s): The target for our model is the IS_SUCCESSFUL variable, indicating whether the funding application was approved (1) or not (0).
+Feature Variables: The features for our model include application characteristics such as APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, and several others that provide insights into each application's nature and background.
+Variables Removed: We removed EIN and NAME from the input data. These identifiers do not contribute predictive value to the outcome of the applications and could potentially skew the model's learning process.
+
+Compiling, Training, and Evaluating the Model
+Model Architecture: I selected a neural network model with two hidden layers. The first layer had 80 neurons, and the second had 30 neurons, both using ReLU activation functions. The output layer used a sigmoid activation function, suitable for binary classification tasks.
+Rationale: The choice of neurons and layers aimed to strike a balance between model complexity and the risk of overfitting, given the size and nature of our dataset. ReLU was chosen for its efficiency and effectiveness in hidden layers, while sigmoid was used for the output layer to map the final output to a probability score between 0 and 1.
+Model Performance: Initially, the model did not achieve the target performance. The accuracy fell short of the desired 75% threshold.
+Optimization Attempts: To improve model performance, I experimented with several strategies, including:
+Adding more neurons to the existing layers to increase model capacity.
+Introducing an additional hidden layer to capture more complex relationships in the data.
+Implementing dropout layers to reduce overfitting.
+Adjusting the learning rate for the optimizer to improve training efficiency.
+
+Summary
+The final optimized model showed improved performance, demonstrating the effectiveness of neural networks in classifying funding application outcomes for Alphabet Soup. While the model made significant strides towards the accuracy goal, it highlights the iterative nature of model development and the need for continuous refinement.
+
+Recommendation for an Alternative Model:
+
+An alternative approach could involve using a Gradient Boosting Machine (GBM) model. GBM models are robust to a wide variety of data types and distributions, often providing high accuracy without the need for extensive data preprocessing. They work well for both binary and multiclass classification problems and can handle missing data effectively.
+Rationale: The GBM model could potentially offer a more straightforward implementation with less need for tuning compared to deep learning models. Its ability to naturally handle feature importance and provide interpretable results makes it a compelling alternative for this classification problem.
